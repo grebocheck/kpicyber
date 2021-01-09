@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import posixpath
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,6 +33,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'articles',
+
+    'bootstrap4',
 
     'django.contrib.admin',
     'django.contrib.auth',
