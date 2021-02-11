@@ -1,0 +1,420 @@
+﻿{% extends "main/index.html" %}
+
+{% load static %}
+
+
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<style>
+
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto\9; /* ie8 */
+        }
+
+        textarea {
+            max-width: 100%;
+            height: auto;
+            width: auto\9; /* ie8 */
+        }
+
+        input[type="text"] {
+            border: 1px solid gray;
+            max-width: 100%;
+            height: auto;
+            width: auto\9; /* ie8 */
+        }
+
+        textarea[type="text"] {
+            border: 1px solid gray;
+            width: 100%;
+            height: auto;
+            width: auto\9; /* ie8 */
+        }
+    p {
+        max-width: 100%;
+            height: auto;
+            width: auto\9; /* ie8 */
+            word-wrap:break-word;
+            
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 1em;
+    }
+</style>
+<div class="container body-content">
+<div class="jumbotron">
+    <h1>{{tournament.title}}</h1>
+    <div>
+        <div class="row">
+            <div class="col-md-12">
+        {%if tournament.imagin1 %}
+            <img src="{{MEDIA_URL}}{{ tournament.imagin1.url }}">
+        {%endif%}
+        <p></p>
+            </div>
+            <div class="col-md-6">
+        {%if tournament.imagin2 %}
+            <img src="{{MEDIA_URL}}{{ tournament.imagin2.url }}">
+        {%endif%}
+        <p></p>
+            </div>
+        <div class="col-md-6">
+        {%if tournament.imagin3 %}
+            <img src="{{MEDIA_URL}}{{ tournament.imagin3.url }}">
+        {%endif%}
+        <p></p>
+            </div>  
+        </div>
+    </div>
+    <p></p>
+    <p>{{tournament.tournament_text}}</p>
+
+    <em>Остання зміна {{tournament.updated}}</em>
+    <br>
+    <em>Автор - {{tournament.author}}</em>
+    <br>
+    <em>Реєстрація закінчуеться {{tournament.deadline_reg}}</em>
+    <p></p>
+    <div class="row">
+        <div class="col-md-4">
+    {%if tournament.link1%}
+    <a href={{tournament.link1}} class="btn btn-outline-success btn-block">{{tournament.link1_name}} &raquo;</a>
+    {%endif%}
+    <p></p>
+        </div>
+        <div class="col-md-4">
+    {%if tournament.link2%}
+    <a href={{tournament.link2}} class="btn btn-outline-success btn-block">{{tournament.link2_name}} &raquo;</a>
+    {%endif%}
+    <p></p>
+        </div>
+        <div class="col-md-4">
+    {%if tournament.link3%}
+    <a href={{tournament.link3}} class="btn btn-outline-success btn-block">{{tournament.link3_name}} &raquo;</a>
+    {%endif%}
+    <p></p>
+        </div>
+    </div>
+</div>
+    {% if latest_team_list %}
+        <div class="jumbotron">
+            <h2>Команди зареєстровані на турнір</h2>
+            <br>
+        {% for a in latest_team_list %}
+        <p>
+            <strong>Назва команди : {{a.team_name}}</strong>
+            <p>Капітан : {{a.capitan}}</p>
+            {%if capitan_contact%}<p>Контакти для зв'язку : {{a.contact_capitan}}</p>{%endif%}
+            <p>Команда :</p>
+            <table border="1" width = 100%>
+                <tr>
+                    <th>№</th>
+                    <th>ПІ</th>
+                    <th>Steam посилання</th>
+                    <th>Вуз</th>
+                    <th>Факультет</th>
+                    <th>Група</th>
+                    <th>Рейтинг</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>{{a.player_name_1}}</td>
+                    <td>{{a.steam_link_1}}</td>
+                    <td>{{a.vuz_1}}</td>
+                    <td>{{a.fuck_1}}</td>
+                    <td>{{a.group_1}}</td>
+                    <td>{{a.rate_1}}</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>{{a.player_name_2}}</td>
+                    <td>{{a.steam_link_2}}</td>
+                    <td>{{a.vuz_2}}</td>
+                    <td>{{a.fuck_2}}</td>
+                    <td>{{a.group_2}}</td>
+                    <td>{{a.rate_2}}</td>
+                </tr>
+                {% if rich_3 %}
+                <tr>
+                    <td>3</td>
+                    <td>{{a.player_name_3}}</td>
+                    <td>{{a.steam_link_3}}</td>
+                    <td>{{a.vuz_3}}</td>
+                    <td>{{a.fuck_3}}</td>
+                    <td>{{a.group_3}}</td>
+                    <td>{{a.rate_3}}</td>
+                </tr>
+                {%endif%}
+                {% if rich_4 %}
+                <tr>
+                    <td>4</td>
+                    <td>{{a.player_name_4}}</td>
+                    <td>{{a.steam_link_4}}</td>
+                    <td>{{a.vuz_4}}</td>
+                    <td>{{a.fuck_4}}</td>
+                    <td>{{a.group_4}}</td>
+                    <td>{{a.rate_4}}</td>
+                </tr>
+                {%endif%}
+                {% if rich_5 %}
+                <tr>
+                    <td>5</td>
+                    <td>{{a.player_name_5}}</td>
+                    <td>{{a.steam_link_5}}</td>
+                    <td>{{a.vuz_5}}</td>
+                    <td>{{a.fuck_5}}</td>
+                    <td>{{a.group_5}}</td>
+                    <td>{{a.rate_5}}</td>
+                </tr>
+                {%endif%}
+                {% if dopr_1 %}
+                <tr>
+                    <td>+1</td>
+                    <td>{{a.player_name_6}}</td>
+                    <td>{{a.steam_link_6}}</td>
+                    <td>{{a.vuz_6}}</td>
+                    <td>{{a.fuck_6}}</td>
+                    <td>{{a.group_6}}</td>
+                    <td>{{a.rate_6}}</td>
+                </tr>
+                {%endif%}
+                {% if dopr_2 %}
+                <tr>
+                    <td>+2</td>
+                    <td>{{a.player_name_7}}</td>
+                    <td>{{a.steam_link_7}}</td>
+                    <td>{{a.vuz_7}}</td>
+                    <td>{{a.fuck_7}}</td>
+                    <td>{{a.group_7}}</td>
+                    <td>{{a.rate_7}}</td>
+                </tr>
+                {%endif%}
+            </table>
+        </p>
+<br>
+        {% endfor %}
+        </div>
+    {% else %}
+    {% endif %}
+    {%if forma%}
+    <div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+    <form action="{% url 'tournament:leave_team' tournament.id %}" method="POST">
+        {% csrf_token %}
+        <h2>Капітан : {{user.username}}</h2>
+        <textarea name="team_name" required="" placeholder="Назва команди" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="contact_capitan" required="" placeholder="Контакти" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="player_name_1" required="" placeholder="ПІ командира (1-го учасника)" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="steam_link_1" required="" placeholder="Лінк на Steam" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="vuz_1" required="" placeholder="Вуз" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="fuck_1" required="" placeholder="Факультет" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="group_1" required="" placeholder="Група" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="rate_1" required="" placeholder="Рейтинг" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="player_name_2" required="" placeholder="ПІ 2-го учасника" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="steam_link_2" required="" placeholder="Лінк на Steam" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="vuz_2" required="" placeholder="Вуз" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="fuck_2" required="" placeholder="Факультет" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="group_2" required="" placeholder="Група" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="rate_2" required="" placeholder="Рейтинг" cols="50" rows="1"></textarea>
+        <p></p>
+        {% if rich_3 %}
+        <textarea name="player_name_3" required="" placeholder="ПІ 3-го учасника" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="steam_link_3" required="" placeholder="Лінк на Steam" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="vuz_3" required="" placeholder="Вуз" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="fuck_3" required="" placeholder="Факультет" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="group_3" required="" placeholder="Група" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="rate_3" required="" placeholder="Рейтинг" cols="50" rows="1"></textarea>
+        <p></p>
+        {% endif %}
+        {% if rich_4 %}
+        <textarea name="player_name_4" required="" placeholder="ПІ 4-го учасника" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="steam_link_4" required="" placeholder="Лінк на Steam" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="vuz_4" required="" placeholder="Вуз" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="fuck_4" required="" placeholder="Факультет" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="group_4" required="" placeholder="Група" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="rate_4" required="" placeholder="Рейтинг" cols="50" rows="1"></textarea>
+        <p></p>
+        {% endif %}
+        {% if rich_5 %}
+        <textarea name="player_name_5" required="" placeholder="ПІ 5-го учасника" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="steam_link_5" required="" placeholder="Лінк на Steam" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="vuz_5" required="" placeholder="Вуз" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="fuck_5" required="" placeholder="Факультет" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="group_5" required="" placeholder="Група" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="rate_5" required="" placeholder="Рейтинг" cols="50" rows="1"></textarea>
+        <p></p>
+        {% endif %}
+        {% if dopr_1 %}
+        <textarea name="player_name_6"  placeholder="ПІ запасного учасника 1" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="steam_link_6"  placeholder="Лінк на Steam" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="vuz_6"  placeholder="Вуз" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="fuck_6"  placeholder="Факультет" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="group_6" placeholder="Група" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="rate_6"  placeholder="Рейтинг" cols="50" rows="1"></textarea>
+        <p></p>
+        {% endif %}
+        {% if dopr_2 %}
+        <textarea name="player_name_7"  placeholder="ПІ запасного учасника 2" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="steam_link_7"  placeholder="Лінк на Steam" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="vuz_7"  placeholder="Вуз" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="fuck_7"  placeholder="Факультет" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="group_7" placeholder="Група" cols="50" rows="1"></textarea>
+        <p></p>
+        <textarea name="rate_7"  placeholder="Рейтинг" cols="50" rows="1"></textarea>
+        <p></p>
+        {% endif %}
+        <button type="submit" class="btn btn-primary btn-block">Відправити за'явку на участь</button>
+    </form>
+    </div>
+    </div>
+    </div>
+    {%endif%}
+
+    {%if mess_auth%}
+    <div class="jumbotron">
+        <h1>Для реєстрації будь-ласка авторизуйтесь</h1>
+    </div>
+    {%endif%}
+    {% if  mess_reg %}
+    <div class="jumbotron">
+        <h2>Ви вже зареєструвалися на цей турнір</h1>
+        {% for a in teg %}
+        <p>
+            <strong>Назва команди : {{a.team_name}}</strong>
+            <p>Капітан : {{a.capitan}}</p>
+            <p>Контакти для зв'язку : {{a.contact_capitan}}</p>
+            <p>Команда :</p>
+            <table border="1" width = 100%>
+                <tr>
+                    <th>№</th>
+                    <th>ПІ</th>
+                    <th>Steam посилання</th>
+                    <th>Вуз</th>
+                    <th>Факультет</th>
+                    <th>Група</th>
+                    <th>Рейтинг</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>{{a.player_name_1}}</td>
+                    <td>{{a.steam_link_1}}</td>
+                    <td>{{a.vuz_1}}</td>
+                    <td>{{a.fuck_1}}</td>
+                    <td>{{a.group_1}}</td>
+                    <td>{{a.rate_1}}</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>{{a.player_name_2}}</td>
+                    <td>{{a.steam_link_2}}</td>
+                    <td>{{a.vuz_2}}</td>
+                    <td>{{a.fuck_2}}</td>
+                    <td>{{a.group_2}}</td>
+                    <td>{{a.rate_2}}</td>
+                </tr>
+                {% if rich_3 %}
+                <tr>
+                    <td>3</td>
+                    <td>{{a.player_name_3}}</td>
+                    <td>{{a.steam_link_3}}</td>
+                    <td>{{a.vuz_3}}</td>
+                    <td>{{a.fuck_3}}</td>
+                    <td>{{a.group_3}}</td>
+                    <td>{{a.rate_3}}</td>
+                </tr>
+                {%endif%}
+                {% if rich_4 %}
+                <tr>
+                    <td>4</td>
+                    <td>{{a.player_name_4}}</td>
+                    <td>{{a.steam_link_4}}</td>
+                    <td>{{a.vuz_4}}</td>
+                    <td>{{a.fuck_4}}</td>
+                    <td>{{a.group_4}}</td>
+                    <td>{{a.rate_4}}</td>
+                </tr>
+                {%endif%}
+                {% if rich_5 %}
+                <tr>
+                    <td>5</td>
+                    <td>{{a.player_name_5}}</td>
+                    <td>{{a.steam_link_5}}</td>
+                    <td>{{a.vuz_5}}</td>
+                    <td>{{a.fuck_5}}</td>
+                    <td>{{a.group_5}}</td>
+                    <td>{{a.rate_5}}</td>
+                </tr>
+                {%endif%}
+                {% if dopr_1 %}
+                <tr>
+                    <td>+1</td>
+                    <td>{{a.player_name_6}}</td>
+                    <td>{{a.steam_link_6}}</td>
+                    <td>{{a.vuz_6}}</td>
+                    <td>{{a.fuck_6}}</td>
+                    <td>{{a.group_6}}</td>
+                    <td>{{a.rate_6}}</td>
+                </tr>
+                {%endif%}
+                {% if dopr_2 %}
+                <tr>
+                    <td>+2</td>
+                    <td>{{a.player_name_7}}</td>
+                    <td>{{a.steam_link_7}}</td>
+                    <td>{{a.vuz_7}}</td>
+                    <td>{{a.fuck_7}}</td>
+                    <td>{{a.group_7}}</td>
+                    <td>{{a.rate_7}}</td>
+                </tr>
+                {%endif%}
+            </table>
+        </p>
+<br>
+        {% endfor %}
+    </div>
+    {%endif%}
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<style>
+  img {
+      max-width: 100%;
+      height: auto;
+      width: auto\9; /* ie8 */
+  }
+</style>
+<div class="container body-content">
+<h1 style="text-align: center;">Статті</h1>
+<br>
+  {% load bootstrap4 %}
+  {% bootstrap_pagination posts pages_to_show=5 %}
+  {% if not posts %}
+<b>Нічого немає</b>
+  {% else %}
+    {% for obj in posts %}
+    <div class="jumbotron">
+    <a href="{{ obj.id }}"><h3>{{ obj.title }}</h3></a>
+      <div class="row">
+          <div class="col-md-4">
+              <img src="{{ obj.imagin1.url }}">
+          </div>
+          <div class="col-md-8">
+            <p>{{ obj.article_text|truncatechars:200 }}</p>
+          </div>
+      </div>
+      <span>{{ obj.post_date }}</span>
+    </div>
+<br>
+    {% endfor %}
+  {% endif %}
+
+  {% bootstrap_pagination posts pages_to_show=5 %}
+{% endblock %}
+</div>

@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.http import Http404 , HttpResponseRedirect , HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
@@ -13,8 +12,6 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Article , Comment
 
-
-# Create your views here.
 def list(request):
     posts = Article.objects.all().order_by('-post_date')
     paginator = Paginator(posts, 5)

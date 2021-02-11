@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\articles",
+    "\\articles\\templates",
+    "\\articles\\templates\\articles",
+    "\\main",
+    "\\main\\templates",
+    "\\main\\templates\\main",
+    "\\tournament",
+    "\\tournament\\templates",
+    "\\tournament\\templates\\tournament"
+  ],
+  "SelectedNode": "\\tournament\\templates\\tournament\\detail.html",
+  "PreviewInSolutionExplorer": false
+}

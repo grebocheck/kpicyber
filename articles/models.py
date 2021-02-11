@@ -10,7 +10,7 @@ class Article(models.Model):
     imagin1 = models.ImageField("Картинка 1",upload_to='articles/' , blank=False, null=False)
     imagin2 = models.ImageField("Картинка 2",upload_to='articles/' , blank=True)
     imagin3 = models.ImageField("Картинка 3",upload_to='articles/' , blank=True)
-    post_date = models.DateField("Дата публікації" , auto_now=False, auto_now_add=True)
+    post_date = models.DateTimeField("Дата публікації" , auto_now=False, auto_now_add=True)
     updated = models.DateTimeField("Редаговано" , auto_now=True, auto_now_add=False)
     author = models.ForeignKey(User , on_delete = models.CASCADE )
     link1 = models.URLField("Кнопка 1", blank=True)
