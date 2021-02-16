@@ -10,6 +10,30 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <style>
+
+      body {
+        background-color: black; /* Цвет фона */
+      }
+
+      nav{
+        background-color: var(--black-color);
+      }
+
+      h2{
+        color: gray;
+      }
+
+      h1{
+        color: var(--red-color);
+      }
+
+      .rde{
+        color: var(--red-color)
+      }
+
+      .jumbotron{
+        background-color: var(--black-color);
+      }
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -29,11 +53,126 @@
         min-height: 75rem;
         padding-top: 3.5rem;
       }
+
+      .formcontrol{
+        background-color: #3CBC8D;
+        color: white;
+      }
+
+      textarea {
+        background-color: #152826;
+        color:white;
+        border-color: var(--blue-color)
+      }
+
+      @import url("https://fonts.googleapis.com/css?family=Barlow|Tomorrow:400,700&display=swap");
+      :root {
+        --yellow-color: #fcee09; 
+        --red-color: #ff003c;
+        --black-color: #050a0e;
+        --blue-color: #00f0ff;
+      }
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        outline: none;
+        background-color: var(--yellow-color);
+        color: var(--black-color);
+        cursor: pointer;
+        padding: 20px 25px;
+        position: relative;
+        font-family: Tomorrow, sans-serif;
+        font-size: .85rem;
+        text-transform: uppercase;
+      }
+
+      .ble{
+        color:var(--blue-color);
+      }
+
+      .sta {
+        color: lightgray;
+      }
+
+      .yel{
+        color:var(--yellow-color)
+      }
+
+      .pagination{
+        border: 0px;
+      }
+
+
+      .pagination > .page-item > a{
+        color: white;
+        background-color: #152826 !Important;
+        border: 0px
+      }
+
+      .pagination > .active > a:hover
+      {
+          background-color: #152826 !Important;
+          border: 0px;
+      }
+
+      .pagination > .active > a
+      {
+          color: black;
+          background-color:darkslategray !Important;
+          border: 0px;
+      }
+
+      .pagination > .active > a:hover
+      {
+          background-color: darkslategray !Important;
+          border: 0px;
+      }
+
+      .pagination > .prev > a
+      {
+          color: white;
+          background-color:#152826  !Important;
+          border: 0px;
+      }
+
+      .pagination > .last > a
+      {
+          color: white;
+          background-color:#152826  !Important;
+          border: 0px;
+      }
+
+      input[type=checkbox] {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      label { 
+        -webkit-appearance: push-button;
+        -moz-appearance: button; 
+        display: inline-block;
+        margin: 60px 0 10px 0;
+        cursor: pointer;
+      }
+
+      /* Default State */
+      .tablet {
+        display: none;
+      }
+
+      /* Toggled State */
+      input[type=checkbox]:checked ~ .tablet {
+        display: block;
+      }
+
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <a class="navbar-brand" href="{% url 'home' %}">KPIcybersport</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -62,5 +201,14 @@
     {% block content %}{% endblock %}
     
 </body>
-<p style="color: #333; padding-left: 5em; padding-top: 2em;">&copy;2020 - {{year}} - KPIcybersport</p>
+<div class="container">
+  <div class='row'>
+    <div class='col-md-8'>
+      <p style="color: gray; padding-left: 5em; padding-top: 2em;">&copy;2020 - {{year}} - KPIcybersport</p>
+    </div>
+    <div class='col-md-4'>
+      <img src='/media/logo.png' style="height: 200px;width: 200px;">
+    </div>
+  </div>
+</div>
 </html>

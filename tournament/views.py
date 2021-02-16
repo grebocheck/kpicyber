@@ -69,7 +69,7 @@ def single(request, tournament_id):
 
         # якщо час реєстрацій закінчився то реєстрація буде не можлива
         if Tournament.objects.get(id = tournament_id).deadline_reg.replace(tzinfo=None) < datetime.now().replace(tzinfo=None):
-            forma = False
+            forma = True
 
     elif request.user.username == "":
         # пользователь который не авторизовался

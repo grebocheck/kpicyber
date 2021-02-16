@@ -79,8 +79,8 @@
             <div class="container">
               <div class="carousel-caption">
                 <h1>{{title1}}</h1>
-                <p>{{text1}}</p>
-                <p><a class="btn btn-lg btn-primary" href="{{urlb1}}" role="button">{{btnt1}}</a></p>
+                <p class="ble">{{text1}}</p>
+                <p><a class="btn btn-lg btn-secondary " href="{{urlb1}}" role="button">{{btnt1}}</a></p>
               </div>
             </div>
           </div>
@@ -89,8 +89,8 @@
             <div class="container">
               <div class="carousel-caption ">
                 <h1>{{title2}}</h1>
-                <p>{{text2}}</p>
-                <p><a class="btn btn-lg btn-primary" href="{{urlb2}}" role="button">{{btnt2}}</a></p>
+                <p class="ble">{{text2}}</p>
+                <p><a class="btn btn-lg btn-secondary" href="{{urlb2}}" role="button">{{btnt2}}</a></p>
               </div>
             </div>
           </div>
@@ -99,8 +99,8 @@
             <div class="container">
               <div class="carousel-caption">
                 <h1>{{title3}}</h1>
-                <p>{{text3}}</p>
-                <p><a class="btn btn-lg btn-primary" href="{{urlb3}}" role="button">{{btnt3}}</a></p>
+                <p class="ble">{{text3}}</p>
+                <p><a class="btn btn-lg btn-secondary " href="{{urlb3}}" role="button">{{btnt3}}</a></p>
               </div>
             </div>
           </div>
@@ -115,30 +115,30 @@
         </a>
       </div> 
     <div class="container body-content">
-      <h1 style="text-align: center;">Переглянь ці статті :)</h1>
+      <h1 style="text-align: center;">Переглянь ці статті</h1>
       {% if article1 %}
       <div class="container">
         <div class = 'jumbotron'>
         <div class="row">
           <div class="col-md-4">
             <img src="{{MEDIA_URL}}{{ article1.imagin1.url }}">
-            <h2>{{article1.title}}</h2>
-            <p>{{ article1.article_text|truncatechars:200 }}</p>
+            <h2 class="ble">{{article1.title}}</h2>
+            <p class='sta'>{{ article1.article_text|truncatechars:200 }}</p>
             <p><a class="btn btn-secondary" href="articles/{{article1.id}}" role="button">Читати далі &raquo;</a></p>
           </div>
           {% if article2 %}
           <div class="col-md-4">
             <img src="{{MEDIA_URL}}{{ article2.imagin1.url }}">
-            <h2>{{article2.title}}</h2>
-            <p>{{ article2.article_text|truncatechars:200 }}</p>
+            <h2 class="ble">{{article2.title}}</h2>
+            <p class='sta'>{{ article2.article_text|truncatechars:200 }}</p>
             <p><a class="btn btn-secondary" href="articles/{{article2.id}}" role="button">Читати далі &raquo;</a></p>
           </div>
           {% endif %}
           {% if article3 %}
           <div class="col-md-4">
             <img src="{{MEDIA_URL}}{{ article3.imagin1.url }}">
-            <h2>{{article3.title}}</h2>
-            <p>{{ article3.article_text|truncatechars:200 }}</p>
+            <h2 class="ble">{{article3.title}}</h2>
+            <p class='sta'>{{ article3.article_text|truncatechars:200 }}</p>
             <p><a class="btn btn-secondary" href="articles/{{article3.id}}" role="button">Читати далі &raquo;</a></p>
           </div>
           {% endif %}

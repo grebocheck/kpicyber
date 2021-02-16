@@ -45,6 +45,13 @@
         text-align: center;
         margin-bottom: 1em;
     }
+
+    th{
+        color:grey;
+    }
+    td{
+        color:grey;
+    }
 </style>
 <div class="container body-content">
 <div class="jumbotron">
@@ -72,30 +79,30 @@
         </div>
     </div>
     <p></p>
-    <p>{{tournament.tournament_text}}</p>
+    <p class="sta">{{tournament.tournament_text}}</p>
 
-    <em>Остання зміна {{tournament.updated}}</em>
+    <em class='ble'>Остання зміна {{tournament.updated}}</em>
     <br>
-    <em>Автор - {{tournament.author}}</em>
+    <em class='ble'>Автор - {{tournament.author}}</em>
     <br>
-    <em>Реєстрація закінчуеться {{tournament.deadline_reg}}</em>
+    <em class='ble'>Реєстрація закінчуеться {{tournament.deadline_reg}}</em>
     <p></p>
     <div class="row">
         <div class="col-md-4">
     {%if tournament.link1%}
-    <a href={{tournament.link1}} class="btn btn-outline-success btn-block">{{tournament.link1_name}} &raquo;</a>
+    <a href={{tournament.link1}} class="btn btn-outline-secondary btn-block">{{tournament.link1_name}} &raquo;</a>
     {%endif%}
     <p></p>
         </div>
         <div class="col-md-4">
     {%if tournament.link2%}
-    <a href={{tournament.link2}} class="btn btn-outline-success btn-block">{{tournament.link2_name}} &raquo;</a>
+    <a href={{tournament.link2}} class="btn btn-outline-secondary btn-block">{{tournament.link2_name}} &raquo;</a>
     {%endif%}
     <p></p>
         </div>
         <div class="col-md-4">
     {%if tournament.link3%}
-    <a href={{tournament.link3}} class="btn btn-outline-success btn-block">{{tournament.link3_name}} &raquo;</a>
+    <a href={{tournament.link3}} class="btn btn-outline-secondary btn-block">{{tournament.link3_name}} &raquo;</a>
     {%endif%}
     <p></p>
         </div>
@@ -103,15 +110,17 @@
 </div>
     {% if latest_team_list %}
         <div class="jumbotron">
-            <h2>Команди зареєстровані на турнір</h2>
+            <h2 class='rde'>Команди зареєстровані на турнір</h2>
+            <label class='btn' for="toggle-1" style="width: 250px;"> Показати таблиці </label>
+            <input type="checkbox" id="toggle-1">
             <br>
         {% for a in latest_team_list %}
         <p>
-            <strong>Назва команди : {{a.team_name}}</strong>
-            <p>Капітан : {{a.capitan}}</p>
-            {%if capitan_contact%}<p>Контакти для зв'язку : {{a.contact_capitan}}</p>{%endif%}
-            <p>Команда :</p>
-            <table border="1" width = 100%>
+            <strong class='ble'>Назва команди : {{a.team_name}}</strong>
+            <p class='sta'>Капітан : {{a.capitan}}</p>
+            {%if capitan_contact%}<p class='sta'>Контакти для зв'язку : {{a.contact_capitan}}</p>{%endif%}
+            <p class='sta tablet'>Команда :</p>
+            <table class='tablet' border="1" width = 100%>
                 <tr>
                     <th>№</th>
                     <th>ПІ</th>
@@ -207,7 +216,7 @@
         <div class="col-md-4">
     <form action="{% url 'tournament:leave_team' tournament.id %}" method="POST">
         {% csrf_token %}
-        <h2>Капітан : {{user.username}}</h2>
+        <h2 class='rde'>Капітан : {{user.username}}</h2>
         <textarea name="team_name" required="" placeholder="Назва команди" cols="50" rows="1"></textarea>
         <p></p>
         <textarea name="contact_capitan" required="" placeholder="Контакти" cols="50" rows="1"></textarea>
@@ -306,7 +315,7 @@
         <textarea name="rate_7"  placeholder="Рейтинг" cols="50" rows="1"></textarea>
         <p></p>
         {% endif %}
-        <button type="submit" class="btn btn-primary btn-block">Відправити за'явку на участь</button>
+        <button type="submit" class="btn btn-secondary btn-block">Відправити за'явку на участь</button>
     </form>
     </div>
     </div>
@@ -320,14 +329,14 @@
     {%endif%}
     {% if  mess_reg %}
     <div class="jumbotron">
-        <h2>Ви вже зареєструвалися на цей турнір</h1>
+        <h2 class="rde">Ви вже зареєструвалися на цей турнір</h1>
         {% for a in teg %}
         <p>
-            <strong>Назва команди : {{a.team_name}}</strong>
-            <p>Капітан : {{a.capitan}}</p>
-            <p>Контакти для зв'язку : {{a.contact_capitan}}</p>
-            <p>Команда :</p>
-            <table border="1" width = 100%>
+            <strong class="ble">Назва команди : {{a.team_name}}</strong>
+            <p class='sta'>Капітан : {{a.capitan}}</p>
+            <p class='sta'>Контакти для зв'язку : {{a.contact_capitan}}</p>
+            <p class='sta'>Команда :</p>
+            <table  border="1" width = 100%>
                 <tr>
                     <th>№</th>
                     <th>ПІ</th>
